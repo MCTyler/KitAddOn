@@ -1,0 +1,12 @@
+BadKits:
+  # Rider works. Remove from this list to enable
+Kits:
+  Mariner:
+    Description: 'Haloa! You are a mariner, you''ve got a fast ship to explore the world s ocean''s ... Why not escape your enemies?'
+    Free: true
+    Price: 0
+    Icon: BOAT 0 1
+    Items:
+      - 'BOAT 0 1 Name=HMS_Endeavour Unlootable 1'
+    Ability:
+      - Mariner
