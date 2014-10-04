@@ -10,3 +10,12 @@ Kits:
       - 'BOAT 0 1 Name=HMS_Endeavour Unlootable 1'
     Ability:
       - Mariner
+  TimeLord:
+    Description: ' You re a Timelor'
+    Free: true
+    Price: 0
+    Icon: WATCH 0 1
+    Items:
+      - 'WATCH 0 1 Name=Stop_Watch Unlootable 1'
+    Ability:
+      - TimeLord
