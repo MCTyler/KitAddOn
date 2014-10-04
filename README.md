@@ -1,6 +1,6 @@
 KitAddOn
 ===========
-V0.3
+V0.3a
 
 A hungergames addon which hooks into LibsHungergames
 
