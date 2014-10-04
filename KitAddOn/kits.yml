@@ -1,5 +1,5 @@
 BadKits:
-  # Rider works. Remove from this list to enable
+  # TimeLord works. Remove from this list to enable
 Kits:
   Mariner:
     Description: 'Haloa! You are a mariner, you''ve got a fast ship to explore the world s ocean''s ... Why not escape your enemies?'
@@ -11,7 +11,7 @@ Kits:
     Ability:
       - Mariner
   TimeLord:
-    Description: ' You re a Timelor'
+    Description: 'Right click your watch to freeze time around you, trapping your enemies!'
     Free: true
     Price: 0
     Icon: WATCH 0 1

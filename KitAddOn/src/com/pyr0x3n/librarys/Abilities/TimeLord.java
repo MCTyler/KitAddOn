@@ -24,8 +24,8 @@ public class TimeLord extends AbilityListener implements Disableable {
 	public HashMap<Player, Integer> frozen = new HashMap<Player, Integer>();
     public int frozenTime = 5; 	
 	public String FreezeMessage = ChatColor.GREEN + "You can't move for %s seconds the time has just stopped!";
-	public String youStoppedTime = ChatColor.GREEN +"You've just stoped the time for %s seconds";
-	public String cooldownMessage = ChatColor.BLUE + "You can use this again in  %s seconds!";
+	public String youStoppedTime = ChatColor.GREEN +"You've just stopped the time for %s seconds";
+	public String cooldownMessage = ChatColor.BLUE + "You can use this again in %s seconds!";
     public int normalCooldown = 20;
     public double dist = 6;
     public String WatchItemName = "Stop Watch";
