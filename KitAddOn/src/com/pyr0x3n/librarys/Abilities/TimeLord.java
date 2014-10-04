@@ -23,8 +23,9 @@ import me.libraryaddict.Hungergames.Types.HungergamesApi;
 public class TimeLord extends AbilityListener implements Disableable {
 	public HashMap<Player, Integer> frozen = new HashMap<Player, Integer>();
     public int frozenTime = 5; 	
-	public String FreezeMessage = ChatColor.GREEN + "You can't move for "  +  frozenTime + " seconds the time has just stopped!";
-	public String youStoppedTime = ChatColor.GREEN +"You've just stoped the time for " +  frozenTime + " seconds";
+	public String FreezeMessage = ChatColor.GREEN + "You can't move for %s seconds the time has just stopped!";
+	public String youStoppedTime = ChatColor.GREEN +"You've just stoped the time for %s seconds";
+	public String cooldownMessage = ChatColor.BLUE + "You can use this again in  %s seconds!";
     public int normalCooldown = 20;
     public double dist = 6;
     public String WatchItemName = "Stop Watch";
@@ -42,14 +43,14 @@ public class TimeLord extends AbilityListener implements Disableable {
     					if ((target instanceof Player)) {
     						Player targeted = (Player)target;
     						frozen.put(targeted,HungergamesApi.getHungergames().currentTime);
-    						targeted.sendMessage(FreezeMessage);
-    						p.sendMessage(youStoppedTime);
+    						targeted.sendMessage(String.format(FreezeMessage, frozenTime));
+    						p.sendMessage( String.format(youStoppedTime,frozenTime));
     						targeted.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, frozenTime * 20, 200), true);
     						targeted.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, frozenTime * 20, 200), true);    						
     					}
     				} 
     			}else {
-    				p.sendMessage(ChatColor.BLUE + "You can use this again in " + (Cooldowns.getCooldown(p.getName()) / 1000) + "seconds!");
+    				p.sendMessage( String.format(cooldownMessage,Cooldowns.getCooldown(p.getName()) / 1000));
     				return;
     			}
     		}
