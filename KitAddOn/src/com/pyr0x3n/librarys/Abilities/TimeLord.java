@@ -9,16 +9,13 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 import com.pyr0x3n.librarys.Cooldowns;
 
-import me.libraryaddict.Hungergames.Events.PlayerKilledEvent;
 import me.libraryaddict.Hungergames.Interfaces.Disableable;
 import me.libraryaddict.Hungergames.Types.AbilityListener;
-import me.libraryaddict.Hungergames.Types.HungergamesApi;
 
 public class TimeLord extends AbilityListener implements Disableable {
 	public HashMap<Player, Integer> frozen = new HashMap<Player, Integer>();
@@ -42,7 +39,6 @@ public class TimeLord extends AbilityListener implements Disableable {
     				for (Entity target : nearbyEntities) {
     					if ((target instanceof Player)) {
     						Player targeted = (Player)target;
-    						frozen.put(targeted,HungergamesApi.getHungergames().currentTime);
     						targeted.sendMessage(String.format(FreezeMessage, frozenTime));
     						p.sendMessage( String.format(youStoppedTime,frozenTime));
     						targeted.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, frozenTime * 20, 200), true);
@@ -57,33 +53,18 @@ public class TimeLord extends AbilityListener implements Disableable {
     	}
     }
 
-
+    
     
     @EventHandler
     public void onDamage(EntityDamageByEntityEvent event) {
     	if (event.getEntity() instanceof Player){
     		Player p = (Player) event.getEntity();
-    		if (frozen.containsKey(p)) {
+        	if (p.hasPotionEffect(PotionEffectType.SLOW) && p.hasPotionEffect(PotionEffectType.JUMP) ) {    			
     			p.removePotionEffect(PotionEffectType.SLOW);
     			p.removePotionEffect(PotionEffectType.JUMP);
-    			frozen.remove(p);
     		}
     	}
     }
     
-    @EventHandler
-    public void onKilled(PlayerKilledEvent event) {
-    	Player p =event.getKilled().getPlayer();
-    	if (frozen.containsKey(p)) {
-    		frozen.remove(p);
-    	}
-    }
-
-    @EventHandler
-    public void onQuit(PlayerQuitEvent event) {
-    	Player p =event.getPlayer().getPlayer();
-    	if (frozen.containsKey(p)) {
-    		frozen.remove(p);
-    	}
-    }   
+ 
 }
