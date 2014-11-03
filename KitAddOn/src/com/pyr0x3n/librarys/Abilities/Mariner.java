@@ -23,7 +23,7 @@ public class Mariner extends AbilityListener implements Disableable{
     public String BoatItemName = "HMS Endeavour";
 
     
-    @SuppressWarnings("deprecation")
+	@SuppressWarnings("deprecation")
 	@EventHandler
     public void onInteract(PlayerInteractEvent event) {
     	if (event.getAction().name().contains("RIGHT") && isSpecialItem(event.getItem(), BoatItemName)) {
