@@ -7,7 +7,6 @@ import net.minecraft.server.v1_7_R4.EntityHuman;
 import net.minecraft.server.v1_7_R4.EntitySnowball;
 import net.minecraft.server.v1_7_R4.PacketPlayOutEntityDestroy;
 
-//import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_7_R4.CraftWorld;
 import org.bukkit.craftbukkit.v1_7_R4.entity.CraftPlayer;
@@ -82,9 +81,8 @@ public class MyFishingHook extends EntityFishingHook{
 		this.controller = ((CraftSnowball)this.sb).getHandle();
 
 		PacketPlayOutEntityDestroy packet = new PacketPlayOutEntityDestroy(new int[] { this.controller.getId() });
-		//for (Player p : Bukkit.getOnlinePlayers()) {
 		for (Gamer gamer : HungergamesApi.getPlayerManager().getGamers()) {	
-			//Player p =  gamer.getPlayer();
+			if (gamer.isSpectator()) continue;
 			((CraftPlayer) gamer.getPlayer()).getHandle().playerConnection.sendPacket(packet);
 		}
 		((CraftWorld)location.getWorld()).getHandle().addEntity(this);

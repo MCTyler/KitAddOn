@@ -1,6 +1,6 @@
 name: KitAddOn
 main: com.pyr0x3n.librarys.Main
 author: Pyr0x3n
-version: 0.10a
+version: 0.11
 depend: [LibsHungergames]
 load: startup

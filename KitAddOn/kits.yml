@@ -88,4 +88,13 @@ Kits:
     Items:
       - 'IRON_FENCE 0 1 Name=The_Shadow_Game Unlootable 1'    
     Ability:
-      - Gladiator       
+      - Gladiator
+  ToxicTroop:
+    Description: 'You''ve got a 2 block of plutonium, use them wiely to irradiate a 20 blocks area'
+    Free: true
+    Price: 0
+    Icon: DIAMOND_BLOCK 0 1
+    Items:
+      - 'DIAMOND_BLOCK 0 2 Name=Plutomium 1'    
+    Ability:
+      - ToxicTroop      
